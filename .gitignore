@@ -1,1 +1,8 @@
 .vagrant
+folly/debian/tmp/
+folly/debian/folly/
+folly/debian/folly-dev/
+folly/debian/files
+*.substvars
+*.debhelper
+*.log

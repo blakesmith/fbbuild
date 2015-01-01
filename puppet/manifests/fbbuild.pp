@@ -17,6 +17,12 @@ node default, "reflect.blakesmith.me" {
     ensure => installed
   }
 
+  # Common
+  package { ["libssl-dev"]:
+    ensure => installed
+  }
+
+  # Folly deps
   package{ ["autoconf-archive",
             "libboost-all-dev",
             "libevent-dev",
@@ -29,8 +35,19 @@ node default, "reflect.blakesmith.me" {
             "zlib1g-dev",
             "binutils-dev",
             "libjemalloc-dev",
-            "libssl-dev",
             "libiberty-dev"]:
-    ensure => installed
+              ensure => installed
   }
+
+  # fbthrift
+  package { ["flex",
+             "bison",
+             "libkrb5-dev",
+             "libsasl2-dev",
+             "libnuma-dev",
+             "libgtest-dev",
+             "pkg-config"]:
+               ensure => installed
+  }
+             
 }

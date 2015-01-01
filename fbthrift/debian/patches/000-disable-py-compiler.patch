@@ -1,0 +1,15 @@
+--- fbthrift/thrift/compiler/py/Makefile.am.orig	2014-12-31 23:59:39.000000000 +0000
++++ fbthrift/thrift/compiler/py/Makefile.am	2014-12-31 23:59:47.000000000 +0000
+@@ -44,9 +44,9 @@
+ 	PYTHONPATH=$(PY_LOCAL_PATH) $(PYTHON) setup.py install --home=$(PY_LOCAL_ROOT)
+ 
+ # Note, not install-exec-hook, see the comment above
+-install-exec-am:
+-	mkdir -p $(PY_INSTALL_HOME)/lib/python
+-	$(PY_RUN_ENV) $(PYTHON) setup.py install $(PY_INSTALL_ARGS)
++#install-exec-am:
++#	mkdir -p $(PY_INSTALL_HOME)/lib/python
++#	$(PY_RUN_ENV) $(PYTHON) setup.py install $(PY_INSTALL_ARGS)
+ 
+ clean-local:
+ 	rm -f frontend.so

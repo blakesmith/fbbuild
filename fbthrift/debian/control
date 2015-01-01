@@ -1,0 +1,25 @@
+Source: fbthrift
+Priority: extra
+Maintainer: Blake Smith <blakesmith0@gmail.com>
+Build-Depends: debhelper (>= 8.0.0),
+               automake,
+               autoconf,
+               autoconf-archive,
+               libtool,
+	       flex,
+	       bison,
+	       libkrb5-dev,
+	       libsasl2-dev,
+	       libnuma-dev,
+	       pkg-config,
+	       libssl-dev
+Standards-Version: 3.9.4
+Section: libs
+Homepage: https://github.com/facebook/fbthrift
+Vcs-Git: http://git.github.com/facebook/fbthrift
+
+Package: fbthrift
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Fbthrift: Facebook fork of thrift
