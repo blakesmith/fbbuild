@@ -12,4 +12,8 @@ node default, "fbdev.blakesmith.me" {
   package { ["build-essential", "automake", "libtool", "gdb", "git"]:
     ensure => installed
   }
+
+  package { ["libboost-all-dev", "folly-dev", "libgoogle-glog-dev", "libdouble-conversion-dev", "libssl-dev", "libevent-dev", "libcap-dev"]:
+    ensure => installed
+  }
 }
