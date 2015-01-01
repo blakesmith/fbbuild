@@ -1,4 +1,4 @@
-DEB_BUILD_OPTIONS = nocheck
+all: folly-build folly-install fbthrift-build fbthrift-install proxygen-build proxygen-install
 
 folly-clean:
 	rm folly/folly/folly/debian
@@ -12,7 +12,10 @@ folly-setup:
 	cd folly/folly/folly/test; wget "https://googletest.googlecode.com/files/gtest-1.6.0.zip"; unzip gtest-1.6.0.zip
 
 folly-build: folly-setup
-	cd folly/folly/folly; dpkg-buildpackage -b
+	cd folly/folly/folly; DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -b -nc
+
+folly-install:
+	sudo dpkg -i folly/folly/folly*.deb
 
 fbthrift-clean:
 	rm -f fbthrift/fbthrift/thrift/debian
@@ -26,4 +29,23 @@ fbthrift-setup:
 	cd fbthrift; patch -p0 -f < debian/patches/000-disable-py-compiler.patch || true
 
 fbthrift-build: fbthrift-setup
-	cd fbthrift/fbthrift/thrift; DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -b
+	cd fbthrift/fbthrift/thrift; DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -b -nc
+
+fbthrift-install:
+	sudo dpkg -i fbthrift/fbthrift/fbthrift*.deb
+
+proxygen-clean:
+	rm -f proxygen/proxgen/proxygen/debian
+	rm -f proxygen/proxygen/*.deb
+	rm -f proxygen/proxygen/*.changes
+	cd proxygen/proxygen/proxygen; make distclean
+
+proxygen-setup:
+	cd proxygen/proxygen/proxygen; autoreconf --install
+	ln -sf ../../debian proxygen/proxygen/proxygen/
+
+proxygen-build: proxygen-setup
+	cd proxygen/proxygen/proxygen; DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -b -nc
+
+proxygen-install:
+	sudo dpkg -i proxygen/proxygen/proxygen*.deb

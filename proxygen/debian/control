@@ -1,0 +1,20 @@
+Source: proxygen
+Priority: extra
+Maintainer: Blake Smith <blakesmith0@gmail.com>
+Build-Depends: debhelper (>= 8.0.0),
+               automake,
+               autoconf,
+               autoconf-archive,
+               libcap-dev,
+               folly-dev,
+               fbthrift
+Standards-Version: 3.9.4
+Section: libs
+Homepage: https://github.com/facebook/proxygen
+Vcs-Git: http://git.github.com/facebook/proxygen
+
+Package: proxygen
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Proxygen C++ HTTP Server

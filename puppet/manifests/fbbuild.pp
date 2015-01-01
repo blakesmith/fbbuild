@@ -49,5 +49,13 @@ node default, "reflect.blakesmith.me" {
              "pkg-config"]:
                ensure => installed
   }
+
+  # proxygen
+  package { ["libcap-dev",
+             "ruby",
+             "gperf",
+             "wget"]:
+               ensure => installed
+  }
              
 }

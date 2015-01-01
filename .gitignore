@@ -3,6 +3,10 @@ folly/debian/tmp/
 folly/debian/folly/
 folly/debian/folly-dev/
 folly/debian/files
+fbthrift/debian/files
+fbthrift/debian/fbthrift
+proxygen/debian/files
+proxygen/debian/proxygen
 *.substvars
 *.debhelper
 *.log
