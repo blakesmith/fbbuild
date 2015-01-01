@@ -19,4 +19,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet.manifest_file  = "fbbuild.pp"
     end
   end
+
+  config.vm.define "fbdev" do |fbdev|
+    fbdev.vm.hostname = "fbdev.blakesmith.me"
+    fbdev.vm.box = "ubuntu/trusty64"
+    fbdev.vm.network "private_network", ip: "192.168.50.11"
+    fbdev.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = 3192
+    end
+    fbdev.vm.provision "puppet" do |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "puppet/modules"
+      puppet.manifest_file  = "fbdevel.pp"
+    end
+  end
 end

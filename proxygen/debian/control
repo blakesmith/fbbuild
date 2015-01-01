@@ -8,6 +8,7 @@ Build-Depends: debhelper (>= 8.0.0),
                libcap-dev,
                folly-dev,
                fbthrift
+Depends: folly-dev
 Standards-Version: 3.9.4
 Section: libs
 Homepage: https://github.com/facebook/proxygen

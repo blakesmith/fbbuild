@@ -1,5 +1,6 @@
 all: folly-build folly-install fbthrift-build fbthrift-install proxygen-build proxygen-install
 clean: folly-clean fbthrift-clean proxygen-clean
+install: folly-install fbthrift-install proxygen-install
 
 folly-clean:
 	rm -f folly/folly/folly/debian

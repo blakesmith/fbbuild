@@ -19,6 +19,11 @@ Build-Depends: debhelper (>= 8.0.0),
 	       libjemalloc-dev,
 	       libssl-dev,
 	       libiberty-dev
+Depends: libbost-all-dev,
+         libevent-dev,
+         libgoogle-glog-dev,
+         libdouble-conversion-dev,
+         libssl-dev
 Standards-Version: 3.9.4
 Section: libs
 Homepage: https://github.com/facebook/folly
